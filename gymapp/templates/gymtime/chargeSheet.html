@@ -1,0 +1,84 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+  <form action="" method="POST">
+    {% csrf_token%}
+    <section class="charge-inputs">
+      <h1 class="charge-main-heading">Charge Sheet</h1>
+      <div class="charge-first-line">
+        <label class="charge-first-line-input-first"
+          ><span>Description</span>
+          <div class="charge-first-line-input charge-first-line-input-first">
+            {{form.description}}
+          </div></label
+        >
+        <label
+          ><span>Charges</span>
+          <div class="charge-first-line-input charge-first-line-input-second">
+            {{form.charges}}
+          </div></label
+        >
+      </div>
+    </section>
+
+    <section class="charge">
+      <div class="charge-buttons">
+        <button
+          class="charge-buttons-button charge-buttons-button-save"
+          type="submit"
+          name="save"
+        >
+          Save
+        </button>
+        <button
+          class="charge-buttons-button charge-buttons-button-cancel"
+          type="reset"
+        >
+          Cancel
+        </button>
+        <button class="charge-buttons-button charge-buttons-button-report">
+          Report
+        </button>
+      </div>
+    </section>
+
+    <section class="charge-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr.</th>
+            <th class="charge-table-description">Description</th>
+            <th>Charges</th>
+            <th>
+              <i class="flaticon-edit"></i><span>|</span
+              ><i class="flaticon-trash trash"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for charge in charge_sheet %}
+          <tr>
+            <td>{{charge.code}}</td>
+            <td class="charge-table-description">{{charge.description}}</td>
+            <td>{{charge.charges}}</td>
+            <td>
+              <a
+                href="{% url 'updateschargesheet' charge.primaryno %}"
+                class="charge-table-icon charge-table-edit"
+                ><i class="flaticon-edit edit"></i></a
+              ><span>|</span>
+              <a
+                href="{% url 'deletechargesheet' charge.primaryno %}"
+                class="charge-table-icon charge-table-delete"
+                ><i class="flaticon-trash trash"></i
+              ></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div>
+{% endblock%}

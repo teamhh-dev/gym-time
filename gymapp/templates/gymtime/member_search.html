@@ -1,0 +1,136 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+
+    <h1 class="members-search-heading">Search Members</h1>
+
+
+    <section id="member-search">
+        <form class="member-search" method="POST">
+            {% csrf_token %}
+            <input type="input" placeholder="Search here..." id="member-search-input" name="searchhh" style="width: 300px;">
+            <button class="members-buttons-button members-buttons-button-save" type="submit" name="search_button">Search</button>
+            <div class="voucher-second-line-radio">
+                <div class="voucher-second-line-radio1">
+                    <input type="radio" name="search" checked value="name" class="voucher-second-line-input voucher-second-line-input-first" id="voucher-second-line-input-first" /><label><span class="old">Name</span></label>
+                </div>
+                <div class="voucher-second-line-radio2">
+                    <input type="radio" name="search" value="cnic" class="voucher-second-line-input voucher-second-line-input-second" id="voucher-second-line-input-second" /><label> <span
+                            class="old">Mobile</span></label>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+    <section id="member-search-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="member-table-name">F/H Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Mobile</th>
+                    <th>
+                        <i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for traine in result%}
+                <tr>
+                    <td>{{traine.name}}</td>
+                    <td class="member-table-name">{{traine.surname}}</td>
+                    <td>{{traine.start}}</td>
+                    <td>{{traine.end}}</td>
+                    <td>{{traine.mobile}}</td>
+                    <td>
+                        <a href="{% url 'updatemembers' traine.primaryno %}" class="member-table-icon member-table-edit"><i
+                                class="flaticon-edit edit"></i></a><span>|</span>
+                        <a href="{% url 'deletemembers' traine.primaryno %}" class="member-table-icon member-table-delete"><i class="flaticon-trash trash"></i></a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="members">
+        <div class="members-buttons">
+
+            <a href="{% url 'members' %}"><button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-back" name='back' type="button">Back</button></a>
+        </div>
+
+    </section>
+
+
+</div>
+<script>
+    //     const trineeFee = document.getElementById('id_trainerfee');
+    //     const personalTraineeFee = document.getElementById('id_personaltrainerfee');
+    //     const addmissionFee = document.getElementById('id_Admissionfee');
+    //     const lockerFee = document.getElementById('id_lockerfee');
+    //     let totalFee = document.getElementById('id_totalfee');
+    //     const calculateButton = document.getElementById('members-seventh-buttons-button-save');
+    //     // console.log(saveButton);
+    //     // totalFee.addEventLisener('click', function() {
+    //     //     // e.preventDeault(); 
+    //     //     totalFee.value = trineeFee.value + personalTraineeFee.value + addmissionFee.value + lockerFee.value;
+    //     // });
+    //     // console.log(totalFee.value = parseInt(trineeFee.value) + parseInt(personalTraineeFee.value) + parseInt(addmissionFee.value) + parseInt(lockerFee.value));
+
+    //     totalFee.readOnly = true;
+
+    //     calculateButton.addEventListener('click', () => {
+    //         // e.preventDeault();
+    //         totalFee.value = parseInt(trineeFee.value) + parseInt(personalTraineeFee.value) + parseInt(addmissionFee.value) + parseInt(lockerFee.value);
+    //     });
+
+    //     const editMember = document.getElementById('member-table');
+    //     const editBtn = document.getElementById('members-buttons-button-edit');
+    //     const deleteBtn = document.getElementById('members-buttons-button-delete');
+    //     const backBtn = document.getElementById('members-buttons-button-back');
+    //     const memberForm = document.getElementById('members-form');
+
+    //     editBtn.addEventListener('click', function () {
+    //         memberForm.style.opacity = 0;
+    //         memberForm.style.visibility = 'hidden';
+    //         editMember.style.opacity = 1;
+    //         editMember.style.visibility = 'visible';
+    //     });
+
+    //     backBtn.addEventListener('click', function () {
+    //         memberForm.style.opacity = 1;
+    //         memberForm.style.visibility = 'visible';
+    //         editMember.style.opacity = 0;
+    //         editMember.style.visibility = 'hidden';
+    //     });
+
+
+    //     const checkDateFormat = document.getElementById(
+    //         "members-buttons-button-save"
+    //     );
+    //     document.getElementById("id_dob").type = 'date';
+    //     document.getElementById("id_start").type = 'date';
+    //     document.getElementById("id_end").type = 'date';
+    //     document.getElementById("id_date").type = 'date';
+
+    //     document.getElementById('id_image').setAttribute('onchange', 'readURL(this);');
+
+    //     function readURL(input) {
+    //         if (input.files && input.files[0]) {
+    //             var reader = new FileReader();
+    //             reader.onload = function (e) {
+    //                 document.getElementById('blah')
+    //                     .setAttribute('src', e.target.result);
+    //             };
+
+    //             reader.readAsDataURL(input.files[0]);
+    //         }
+    //     }
+</script>
+
+{% endblock %}

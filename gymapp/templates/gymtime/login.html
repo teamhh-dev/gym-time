@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <title>GYM TIME</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 class="navbar-heading">GYM TIME</h1>
+        <ul class="navbar-list">
+            <li class="navbar-item">0323-7003700</li>
+            <li class="navbar-item">
+                <button class="navbar-login-button">Log In</button>
+            </li>
+        </ul>
+    </nav>
+    <img src="{% static 'images/Front_Image.jpg' %}" class="background-img" />
+
+    <section class="login">
+        <h1 class="login-heading">Login</h1>
+        <form action="" method="POST" class="login-input">
+            {% csrf_token %}
+            <input type="text" name="username" class="login-input-field login-input-username" placeholder="Username" />
+            <input type="password" name="password" class="login-input-field login-input-password" placeholder="Password" />
+            <div class="login-buttons">
+                <button type="submit" name="submit" id="buttonsubmitlogin" class="login-buttons-button login-buttons-login">
+                    Login
+                </button>
+                <button type="button" class="login-buttons-button login-buttons-cancel">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <script src="{% static 'js/script.js'%}"></script>
+</body>
+
+</html>

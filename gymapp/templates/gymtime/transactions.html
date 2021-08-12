@@ -1,0 +1,192 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token%}
+    <section class="members-inputs">
+      <h1 class="members-main-heading">Fee Collection</h1>
+
+      <div class="members-first-line">
+        <div class="members-first-line-input">
+          <label><span>Year</span>{{form.year}}</label>
+          <label
+            ><span>Month</span>
+            <div
+              class="
+                members-first-line-input-text
+                members-first-line-input-text-second
+              "
+            >
+              {{form.month}}
+            </div>
+          </label>
+
+          <button type="submit" name="G_submit" id="generateBtn">
+            Generate Fee
+          </button>
+        </div>
+      </div>
+
+      <div class="members-second-line" id="transaction-second">
+        <div class="members-second-line-input">
+          <label
+            ><span>Member</span>
+            <div
+              class="
+                members-second-line-input-text
+                members-second-line-input-text-first
+              "
+            >
+              {{form.member_code}}
+            </div>
+          </label>
+          <label class="members-second-line-input-text-second"
+            ><span>Paid Amount</span>
+            <div
+              class="
+                members-second-line-input-text
+                members-second-line-input-text-second
+              "
+            >
+              {{form.paid_amt}}
+            </div>
+          </label>
+          <label class="members-second-line-input-text"
+            ><span>Due Amount</span>
+            {{form.due_amt}}
+          </label>
+        </div>
+      </div>
+
+      <div class="members-third-line" id="transaction-third">
+        <div class="members-third-line-input">
+          <label
+            ><span>Paid Date</span>
+            <div
+              class="
+                members-third-line-input-text
+                members-third-line-input-text-first
+              "
+            >
+              {{form.paid_date}}
+            </div>
+          </label>
+          <label class="members-third-line-input-text-second"
+            ><span>Due Date</span>
+            <div
+              class="
+                members-third-line-input-text
+                members-third-line-input-text-second
+              "
+            >
+              {{form.due_date}}
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="members-fourth-line" id="transaction-fourth">
+        <div class="members-fourth-line-input">
+          <label class="members-fourth-line-input-text-second"
+            ><span>Voucher#</span>
+            <div
+              class="
+                members-third-line-input-text
+                members-third-line-input-text-second
+              "
+            >
+              {{form.vouchno}}
+            </div>
+          </label>
+          <label class="members-fourth-line-input-text-third"
+            ><span>Balance</span>
+            <div
+              class="
+                members-fourth-line-input-text
+                members-fourth-line-input-text-third
+              "
+            >
+              {{form.balance}}
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="members">
+      <div class="members-buttons">
+        <button
+          class="members-buttons-button members-buttons-button-save"
+          id="members-buttons-button-save"
+          type="submit"
+          name="save"
+        >
+          Save
+        </button>
+        <button class="members-buttons-button members-buttons-button-cancel">
+          Cancel
+        </button>
+        <button class="members-buttons-button members-buttons-button-report">
+          Report
+        </button>
+      </div>
+    </section>
+  </form>
+
+  <section class="transaction-table">
+    <table class="transaction-table-print" id="company-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="transaction-table-name">Due Amount</th>
+          <th class="transaction-table-address">Paid Amount</th>
+          <th>Balance</th>
+          <th>Due Date</th>
+          <th>Paid Date</th>
+          <th>Voucher#</th>
+          <th>
+            <i class="flaticon-edit"></i><span>|</span
+            ><i class="flaticon-trash trash"></i>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for transaction in transactions %}
+        <tr class="transaction-table-print-tr">
+          <td>{{transaction.member_code}}</td>
+          <td class="transaction-table-name">{{transaction.due_amt}}</td>
+          <td class="transaction-table-address">{{transaction.paid_amt}}</td>
+          <td>{{transaction.balance}}</td>
+          <td>{{transaction.due_date}}</td>
+          <td>{{transaction.paid_date}}</td>
+          <td>{{transaction.vouchno}}</td>
+          <td>
+            <a
+              href="{% url 'updatetransactions' transaction.trans_id %}"
+              class="company-table-icon company-table-edit"
+              ><i class="flaticon-edit edit"></i></a
+            ><span>|</span>
+            <a
+              href="{% url 'deletetransactions' transaction.trans_id %}"
+              class="company-table-icon company-table-delete"
+              ><i class="flaticon-trash trash"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+    const paidAmt = document.getElementById('id_paid_amt');
+    const dueAmt = document.getElementById('id_due_amt');
+    let totalBalance = document.getElementById('id_balance');
+    
+    document.getElementById("id_paid_date").type = 'date';
+    document.getElementById("id_due_date").type = 'date';
+
+    
+</script>
+{% endblock %}

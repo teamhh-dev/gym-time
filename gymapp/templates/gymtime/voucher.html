@@ -1,0 +1,516 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+  <form action="" method="POST">
+    {%csrf_token%}
+    <section class="voucher-inputs">
+      <h1 class="voucher-main-heading">Accout Vouchers</h1>
+      {% if data_check %}
+      <div class="voucher-first-line">
+        <label
+          ><span>Voucher Type</span>
+          <div>{{form.vouchtype}}</div>
+        </label>
+        <!-- <select name="cars" class="voucher-first-line-dropbox1">
+                        <option value="T">C.V</option>
+                    </select></label> -->
+        <label
+          ><span>Date</span>
+          <div class="voucher-first-line-input voucher-first-line-input-second">
+            {{form.entrydate}}
+          </div>
+        </label>
+
+        <label
+          ><span>Voucher#</span>
+          <select
+            name="Voucherno"
+            class="voucher-first-line-dropbox2"
+            id="id_select"
+          >
+            {% if vouchers %} {%for voucher in vouchers %}
+            <option value="{{voucher.vouchno}}">{{voucher.vouchno}}</option>
+            {% endfor %} {% else %}
+            <option>none</option>
+            {% endif %}
+          </select></label
+        >
+        <!-- {% endif %} -->
+
+        <label
+          ><span>Cash</span>
+          <div
+            type="number"
+            class="voucher-second-line-input voucher-second-line-input-second"
+          >
+            {{form.cashbalance}}
+          </div>
+        </label>
+
+        <!-- <button type="menu">Back</button></a> -->
+      </div>
+
+      <div class="voucher-second-line">
+        <div class="voucher-second-line-radio">
+          <div class="voucher-second-line-radio1">
+            <input
+              type="radio"
+              name="voucher"
+              value="new"
+              class="voucher-second-line-input voucher-second-line-input-first"
+              id="voucher-second-line-input-first"
+            /><label><span class="old">New</span></label>
+          </div>
+          <div class="voucher-second-line-radio2">
+            <input
+              type="radio"
+              name="voucher"
+              value="old"
+              class="voucher-second-line-input voucher-second-line-input-second"
+              id="voucher-second-line-input-second"
+              onclick="oldCheck()"
+            /><label> <span class="old">Old</span></label>
+          </div>
+        </div>
+
+        <label id="id_balanceDiv"
+          ><span>A/c</span>
+          <div
+            type="text"
+            class="voucher-second-line-input voucher-second-line-input-third"
+          >
+            {{form.balance}}
+          </div>
+        </label>
+      </div>
+      <div class="voucher-third-line">
+        <label
+          ><span>A/c Code</span>
+          <div
+            type="text"
+            contenteditable="false"
+            class="voucher-third-line-input voucher-third-line-input-first"
+          >
+            {{form.party}}
+          </div>
+        </label>
+        <label class="my-input"
+          ><span>A/c Name</span>
+          <div
+            type="text"
+            class="voucher-third-line-input voucher-fir-third-line-input-second"
+          >
+            {{form.partydescript}}
+            <ul id="myUL"></ul>
+          </div>
+        </label>
+        <label
+          ><span>Debit</span>
+          <div
+            class="voucher-third-line-input voucher-fir-third-line-input-third"
+          >
+            {{form.debit}}
+          </div>
+        </label>
+        <label
+          ><span>Credit</span>
+          <div
+            class="voucher-third-line-input voucher-fir-third-line-input-fourth"
+          >
+            {{form.credit}}
+          </div>
+        </label>
+      </div>
+      <div class="voucher-fourth-line">
+        <label
+          ><span>Description</span>
+          <div
+            type="text"
+            class="voucher-fourth-line-input voucher-fourth-line-input-first"
+          >
+            {{form.descript}}
+          </div>
+        </label>
+      </div>
+
+      <div class="voucher-fifth-line">
+        <label
+          ><span>Total Debit</span>
+          <div class="voucher-fifth-line-input voucher-fifth-line-input-first">
+            <input type="text" disabled />
+          </div>
+        </label>
+        <label
+          ><span>Total Credit</span>
+          <div class="voucher-fifth-line-input voucher-fifth-line-input-second">
+            <input type="text" disabled />
+          </div>
+        </label>
+        <label
+          ><span>Differece</span>
+          <div class="voucher-fifth-line-input voucher-fifth-line-input-third">
+            {{form.balance1}}
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <section class="members">
+      <div class="members-buttons">
+        <button
+          class="members-buttons-button members-buttons-button-save"
+          id="members-buttons-button-save"
+          type="submit"
+          name="submit"
+        >
+          Save
+        </button>
+        <button class="members-buttons-button members-buttons-button-cancel">
+          Cancel
+        </button>
+        <button class="members-buttons-button members-buttons-button-report">
+          Report
+        </button>
+      </div>
+    </section>
+
+    <section class="voucher-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Voucher Description</th>
+            <th>
+              <i class="flaticon-edit"></i><span>|</span
+              ><i class="flaticon-trash trash"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for voucher in vouchers%}
+          <tr>
+            <td>{{voucher.party}}</td>
+            <td>{{voucher.partydescript}}</td>
+            <td>{{voucher.debit}}</td>
+            <td>{{voucher.credit}}</td>
+            <td>{{voucher.descript}}</td>
+            <td>
+              <a
+                href="{% url 'updatevoucher' voucher.primaryno %}"
+                class="voucher-table-icon voucher-table-edit"
+                ><i class="flaticon-edit edit"></i></a
+              ><span>|</span
+              ><a
+                href="{% url 'deleteaccountsvouchers' voucher.primaryno %}"
+                class="voucher-table-icon voucher-table-delete"
+                ><i class="flaticon-trash trash"></i
+              ></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div>
+<!-- {% for accounts in chartsofaccounts %} {{accounts.description}}{{accounts.party}}{% endfor %} -->
+<script>
+  const data =
+    "{% for accounts in chartsofaccounts %}{{accounts.party}} {% endfor %}";
+  const data2 =
+    '{% for accounts in chartsofaccounts %}{{accounts.description}}{{"-"}}{% endfor %}';
+  const data3 =
+    '{% for vouchers in vouchers %}{{"-"}}{{vouchers.entrydate}} {% endfor %}';
+  const data4 = "{{chartsofaccounts}}";
+  const data5 =
+    "{% for vouchers in chartsofaccounts %} {{vouchers.credit}}{% endfor %}";
+  const data6 =
+    "{% for vouchers in chartsofaccounts %} {{vouchers.debit}}{% endfor %}";
+  const data7 =
+    "{% for vouchers in vouchers %}{{vouchers.vouchno}} {% endfor %}";
+  const data8 = "{% for vouchers in vouchers %}{{vouchers.code}} {% endfor %}";
+  const data9 =
+    "{% for vouchers in vouchers %}{{vouchers.vouchtype}} {% endfor %}";
+  // console.log(data);
+  // console.log(data2);
+  console.log(data4);
+  // console.log(data5);
+  // console.log(data6);
+  // console.log(data7);
+  const code = data.split(" ");
+  code.pop();
+
+  const name = data2.split("-");
+  name.pop();
+
+  const credit = data5.split(" ");
+  credit.pop();
+
+  const debitt = data6.split(" ");
+  debitt.pop();
+
+  const voucherno = data7.split(" ");
+  voucherno.pop();
+
+  const vouchercode = data8.split(" ");
+  vouchercode.pop();
+
+  const vouchertype = data9.split(" ");
+  vouchertype.pop();
+
+  console.log(data7);
+  console.log(data8);
+  console.log(data9);
+
+  const date = document.getElementById("id_entrydate");
+  // console.log(date.value);
+  // date.textContent = '';
+
+  // console.log(voucherList);
+
+  // code.push(data);
+  // console.log(code);
+  // console.log(name);
+  // console.log(data);
+  // console.log(data2);
+  // console.log(data3);
+  // console.log(data4);
+  // console.log("Hello I am after the data");
+
+  // var toppings = ["Tomato", "Cheese", "Pepperoni",
+  //     "Olives", "Jalapenos", "Pineapple", "Ham", "Muneeb"
+  // ];
+
+  const old = document.getElementsByClassName(
+    "voucher-second-line-input-second"
+  );
+  // const oldChecked = document.querySelectorAll('input[name="voucher"]');
+  // // console.log(old);
+  // let selectedValue;
+
+  // for(const a of oldChecked){
+  //     if (a.checked) {
+  //         selectedValue = rb.value;
+  //         break;
+  //     }
+  // }
+  // alert(selectedValue);
+
+  function oldCheck() {
+    const select = document.getElementById("id_select");
+
+    function removeAllChildNodes(parent) {
+      while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+      }
+    }
+    // const container = document.querySelector('#container');
+    removeAllChildNodes(select);
+
+    // select.removeChildAll(select.options);
+    // console.log(date.value);
+    if (date.value != "") {
+      // console.log('success');
+      // console.log(date.value);
+      const voucherList = voucherno.map((value, i) =>
+        voucherno[i].substr(2, 8)
+      );
+      const voucherList1 = voucherno.map((value, i) =>
+        voucherno[i].substr(0, 2)
+      );
+      const voucherList2 = ["BV", "CV", "JV"];
+      let array = [];
+      // console.log(voucherList);
+      const va = date.value.split("-").join("");
+      console.log(va);
+      voucherno.forEach((value, i) => {
+        // console.log(date.value);
+        if (va === voucherList[i] && voucherList1[i] === "BV") {
+          array[i] = `BV${va}${vouchercode[i]}`;
+          // console.log('a');
+        }
+        if (va === voucherList[i] && voucherList1[i] === "JV") {
+          array[i] = `JV${va}${vouchercode[i]}`;
+          // console.log('b');
+        }
+        if (va === voucherList[i] && voucherList1[i] === "CV") {
+          array[i] = `CV${va}${vouchercode[i]}`;
+          // console.log('c');
+        }
+      });
+
+      console.log(array);
+
+      const voucherType = document.getElementById("id_vouchtype");
+
+      // console.log(voucherType.value);
+
+      const codeArray = [];
+
+      const array2 = array.filter((value, i) => {
+        // console.log(value[0]);
+        // console.log(voucherType.value[0]);
+        if (value[0] === voucherType.value[0]) {
+          // codeArray[i] = vouchercode[i]
+          return value;
+        }
+      });
+      // console.log(codeArray);
+
+      // console.log(array2);
+
+      // const array3 = array2.map((value, i) => {
+      //     return `${value}${vouchercode[i]}`;
+      // });
+
+      // console.log(array3);
+
+      array2.forEach((value, i) => {
+        // const select = document.getElementById('id_select');
+        // console.log(select);
+        const option = document.createElement("option");
+        const span = document.createElement("span");
+
+        option.appendChild(span);
+
+        // console.log(option);
+
+        span.appendChild(document.createTextNode(array2[i]));
+
+        select.appendChild(option);
+      });
+
+      // if(date.value == )
+    }
+    // console.log(document.getElementById('id_entrydate'));
+    // console.log(date);
+    // console.log(old);
+    // console.log(oldCheck);
+    // console.log('Succeeded');
+  }
+
+  // if(oldChecked.checked){
+  //     console.log('Succeeded');
+  // }
+
+  // const nameSearch = document.getElementById("id_partydescript")
+  const namePick = document.querySelector("#id_partydescript");
+
+  namePick.setAttribute("onkeyup", "myFunction()");
+  // namePick.setAttribute('id', 'id_partydescript myInput');
+
+  let ul = document.querySelector("#myUL");
+  let li = document.getElementsByTagName("li");
+  // console.log(ul);
+
+  for (let i = 0; i < code.length; i++) {
+    let codes = code[i];
+    let names = name[i];
+    // let a = "<li>";
+    // let b = "</li>";
+
+    let listItem = document.createElement("li");
+    let listItems = document.createElement("a");
+    listItems.classList.add("fillFields");
+
+    listItem.appendChild(listItems);
+
+    listItems.appendChild(document.createTextNode(`${names} ${codes}`));
+
+    // li.appendChild(document.createTextNode(`${names} ${codes}`));
+
+    // listItem.textContent = `${names} ${codes}`;
+
+    // console.log(d);
+    // console.log(listItem);
+    // console.log(listItem.textContent);
+    // console.log(listItems);
+    // console.log(listItems.textContent);
+
+    ul.appendChild(listItem);
+  }
+  // namePick.addEventListener('click', function() {
+
+  // });
+  // console.log(namePick);
+
+  const input = document.querySelectorAll("input");
+  console.log(input);
+
+  input.forEach((value, i) => {
+    value.addEventListener("click", function () {
+      document.querySelector("#myUL").style.opacity = 0;
+      document.querySelector("#myUL").style.visibility = "hidden";
+    });
+  });
+
+  //   const input1 = getElementById("id_vouchtype");
+
+  //   input1.addEventListener("click", function () {
+  //     document.querySelector("#myUL").style.opacity = 0;
+  //     document.querySelector("#myUL").style.visibility = "hidden";
+  //   });
+
+  namePick.addEventListener("click", function () {
+    document.querySelector("#myUL").style.opacity = 1;
+    document.querySelector("#myUL").style.visibility = "visible";
+  });
+
+  //   const debit = document.getElementById("id_debit");
+  //   debit.addEventListener("click", function () {
+  //     document.querySelector("#myUL").style.opacity = 0;
+  //     document.querySelector("#myUL").style.visibility = "hidden";
+  //   });
+
+  // const grid = document.getElementsByTagName("table");
+
+  // grid.addEventListener('click', function() {
+  //     document.querySelector("#myUL").style.opacity = 0;
+  //     document.querySelector("#myUL").style.visibility = "hidden";
+  // });
+
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("id_partydescript");
+    filter = input.value.toUpperCase();
+    // console.log(input);
+    // console.log(filter);
+    ul = document.getElementById("myUL");
+
+    li = ul.getElementsByTagName("li");
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      console.log(a);
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
+  const fillFields = document.querySelectorAll(".fillFields");
+  // console.log(fillFields);
+  // fillFields.addEventListener('click', function() {
+  //     const acCode = document.getElementById('id_party');
+  // });
+  fillFields.forEach((value, i) => {
+    // console.log(value);
+    value.addEventListener("click", function () {
+      const acCode = document.getElementById("id_party");
+      acCode.value = code[i];
+      const acName = document.getElementById("id_partydescript");
+      acName.value = name[i];
+    });
+  });
+  document.getElementById("id_entrydate").type = 'date';
+</script>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <section class="chart-inputs">
+      <h1 class="chart-main-heading">Chart of Accounts</h1>
+      <div class="chart-first-line">
+        <label
+          ><span>Code</span>
+          <div class="chart-first-line-input chart-first-line-input-first">
+            {{form.party}}
+          </div></label
+        >
+        <label
+          ><span>Description</span>
+          <div class="chart-first-line-input chart-first-line-input-second">
+            {{form.description}}
+          </div></label
+        >
+        <label
+          ><span>Phone</span>
+          <div class="chart-first-line-input chart-first-line-input-third">
+            {{form.phone}}
+          </div></label
+        >
+        <label
+          ><span>Mobile</span>
+          <div class="chart-first-line-input chart-first-line-input-third">
+            {{form.mobile}}
+          </div></label
+        >
+        <label
+          ><span>Bal B/F</span>
+          <div class="chart-first-line-input chart-first-line-input-third">
+            {{form.balbf}}
+          </div></label
+        >
+      </div>
+      <div class="chart-second-line">
+        <label class="chart-second-line-input-first"
+          ><span>Address</span>
+          <div class="chart-second-line-input chart-second-line-input-first">
+            {{form.address}}
+          </div></label
+        >
+        <label
+          ><span>T/P/B</span>
+          <div class="chart-second-line-dropbox">{{form.mark}}</div></label
+        >
+      </div>
+    </section>
+
+    <section class="chart">
+      <div class="chart-buttons">
+        <button
+          class="chart-buttons-button chart-buttons-button-save"
+          type="submit"
+          name="save"
+        >
+          Save
+        </button>
+        <button
+          class="chart-buttons-button chart-buttons-button-cancel"
+          type="reset"
+          name="cancel"
+        >
+          Cancel
+        </button>
+        <button
+          class="chart-buttons-button chart-buttons-button-report"
+          type="reset"
+          name="report"
+        >
+          Report
+        </button>
+      </div>
+    </section>
+
+    <section class="chart-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th class="chart-table-description">Description</th>
+            <th class="chart-table-address">Address</th>
+            <th>Phone</th>
+            <th>Mobile</th>
+            <th>T/P/B</th>
+            <th>Bal B/F</th>
+            <th>
+              <i class="flaticon-edit"></i><span>|</span
+              ><i class="flaticon-trash trash"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for customers in customer01 %}
+          <tr>
+            <td>{{customers.party}}</td>
+            <td class="chart-table-description">{{customers.description}}</td>
+            <td class="chart-table-address">{{customers.address}}</td>
+            <td>{{customers.phone}}</td>
+            <td>{{customers.mobile}}</td>
+            <td>{{customers.mark}}</td>
+            <td>{{customers.balbf}}</td>
+            <td>
+              <a
+                href="{% url 'updatechartofaccounts' customers.primaryno %}"
+                class="chart-table-icon chart-table-edit"
+                ><i class="flaticon-edit edit"></i></a
+              ><span>|</span>
+              <a
+                href="{% url 'deletechartofaccounts' customers.primaryno %}"
+                class="chart-table-icon chart-table-delete"
+                ><i class="flaticon-trash trash"></i
+              ></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </form>
+
+  {% endblock %}
+</div>

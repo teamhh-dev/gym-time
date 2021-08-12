@@ -1,0 +1,69 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+    <form action="" method="POST">
+        {% csrf_token%}
+        <section class="company-inputs">
+            <h1 class="company-main-heading">Companies</h1>
+            <div class="company-first-line">
+                <label><span>Code</span><input type="text" disabled class="company-first-line-input company-first-line-input-first"></label>
+                <label class="company-first-line-input-second"><span>Name</span><div class="company-first-line-input company-first-line-input-second">{{form.company}}</div></label>
+                <label><span>Phone</span><div class="company-first-line-input company-first-line-input-third">{{form.phone}}</div></label>
+                <label><span>Website</span><div class="company-first-line-input company-first-line-input-third">{{form.website}}</div></label>
+            </div>
+            <div class="company-second-line">
+                <label class="company-second-line-input-first"><span>Address</span><div class="company-second-line-input company-second-line-input-first">{{form.address}}</div></label>
+                <label class="company-second-line-input-second"><span>E-mail</span><div class="company-second-line-input company-second-line-input-second">{{form.email}}</label>
+
+            </div>
+        </section>
+
+        <section class="company">
+            <div class="company-buttons">
+                <button class="company-buttons-button company-buttons-button-save" type="submit" name="save">Save</button>
+                <button class="company-buttons-button company-buttons-button-cancel" type="reset">Cancel</button>
+                <button class="company-buttons-button company-buttons-button-report">Report</button>
+            </div>
+
+        </section>
+
+
+        <section class="company-table">
+            <table class="company-table-print">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th class="company-table-name">Name of Company</th>
+                        <th class="company-table-address">Address</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                        <th>Email</th>
+                        <th><i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for comid in comid %}
+                    <tr class="company-table-print-tr">
+                        <td>{{comid.code}}</td>
+                        <td class="company-table-name">{{comid.company}}</td>
+                        <td class="company-table-address">{{comid.address}}</td>
+                        <td>{{comid.phone}}</td>
+                        <td>{{comid.website}}</td>
+                        <td>{{comid.email}}</td>
+                        <td><a href="{% url 'companydetailsedit' comid.primaryno %}" class="company-table-icon company-table-edit"><i class="flaticon-edit edit"></i></a><span>|</span>
+                            <a href="{% url 'companyDetailsconfirmdelete' comid.primaryno %}" class="company-table-icon company-table-delete"><i class="flaticon-trash trash"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </section>
+
+
+
+    </form>
+
+
+</div>
+{% endblock %}

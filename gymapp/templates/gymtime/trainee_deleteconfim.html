@@ -1,0 +1,52 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <section class="trainee-inputs">
+      <h1 class="trainee-main-heading">Trainee</h1>
+    </section>
+
+    <section class="trainee">
+      <div class="trainee-buttons">
+        <button
+          class="trainee-buttons-button trainee-buttons-button-cancel"
+          type="submit"
+          name="delete"
+        >
+          Delete
+        </button>
+        <button
+          class="trainee-buttons-button trainee-buttons-button-save"
+          name="cancel"
+        >
+          Cancel
+        </button>
+      </div>
+    </section>
+
+    <section class="trainee-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th class="trainee-table-name">Name</th>
+            <th>CNIC</th>
+            <th>Contact</th>
+            <th>DOB</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{trainie.code}}</td>
+            <td class="trainee-table-name">{{trainie.name}}</td>
+            <td>{{trainie.cnic}}</td>
+            <td>{{trainie.contact}}</td>
+            <td>{{trainie.dob}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div>
+{% endblock %}

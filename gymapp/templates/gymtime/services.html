@@ -1,0 +1,71 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <section class="services-inputs">
+            <h1 class="services-main-heading">Services</h1>
+            <div class="services-first-line">
+                <label><span>Code</span><input type="text" disabled
+            class="services-first-line-input services-first-line-input-first" /></label>
+                <label><span>Description</span>
+          <div class="services-first-line-input services-first-line-input-second">
+            {{form.description}}
+          </div>
+        </label>
+                <label><span>Charges</span>
+          <div class="services-first-line-input services-first-line-input-third">
+            {{form.charges}}
+          </div>
+        </label>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="services-buttons">
+                <button class="services-buttons-button services-buttons-button-save" type="submit" name="save">
+          Save
+        </button>
+                <button class="services-buttons-button services-buttons-button-cancel" name="cancel" type="reset">
+          Cancel
+        </button>
+                <button class="services-buttons-button services-buttons-button-report">
+          Report
+        </button>
+            </div>
+        </section>
+
+        <section class="services-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr</th>
+                        <th>Code</th>
+                        <th class="services-table-description">Description</th>
+                        <th>Charges</th>
+                        <th>
+                            <i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for service in services%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{service.code}}</td>
+                        <td class="services-table-description">{{service.description}}</td>
+                        <td>{{service.charges}}</td>
+                        <td>
+                            <a href="{% url 'updateservices' service.parimaryno %}" class="services-table-icon services-table-edit"><i
+                  class="flaticon-edit edit"></i></a><span>|</span>
+                            <a href="{% url 'deleteservice' service.parimaryno %}" class="services-table-icon services-table-delete"><i class="flaticon-trash trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+    <form action="" method="POST">
+        {% csrf_token%}
+
+        <section class="services">
+            <div class="services-buttons">
+                <button class="services-buttons-button services-buttons-button-save" type="submit" name="delete">Delete</button>
+                <button class="services-buttons-button services-buttons-button-cancel" name="cancel">Cancel</button>
+                
+            </div>
+
+        </section>
+
+
+        <section class="services-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Charges</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{service.code}}</td>
+                        <td>{{service.description}}</td>
+                        <td>{{service.charges}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
+
+
+    </form>
+
+
+</div>
+{% endblock %}

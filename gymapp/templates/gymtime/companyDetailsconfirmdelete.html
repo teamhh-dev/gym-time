@@ -1,0 +1,53 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+  <form action="" method="POST">
+    {% csrf_token%}
+
+    <section class="company">
+      <div class="company-buttons">
+        <button
+          class="company-buttons-button company-buttons-button-cancel"
+          type="submit"
+          name="delete"
+        >
+          Delete
+        </button>
+        <button
+          class="company-buttons-button company-buttons-button-save"
+          type="submit"
+          name="cancel"
+        >
+          Cancel
+        </button>
+      </div>
+    </section>
+
+    <section class="company-table">
+      <table class="company-table-print">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th class="company-table-name">Name of Company</th>
+            <th class="company-table-address">Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="company-table-print-tr">
+            <td>{{comid.code}}</td>
+            <td class="company-table-name">{{comid.company}}}</td>
+            <td class="company-table-address">{{comid.address}}</td>
+            <td>{{comid.phone}}</td>
+            <td>{{comid.website}}</td>
+            <td>{{comid.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div>
+{% endblock %}

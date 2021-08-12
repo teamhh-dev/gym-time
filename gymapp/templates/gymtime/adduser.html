@@ -1,0 +1,215 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<!-- <div class="item3">
+  <form action="">
+    <section class="voucher-inputs">
+      <h1 class="voucher-main-heading">Accout Vouchers</h1>
+      <div class="voucher-first-line">
+        <label
+          ><span>V.Type</span>
+          <select name="cars" class="voucher-first-line-dropbox1">
+            <option value="T">C.V</option>
+          </select></label
+        >
+        <label
+          ><span>Date</span
+          ><input
+            type="date"
+            class="voucher-first-line-input voucher-first-line-input-second"
+        /></label>
+        <label
+          ><span>Voucher#</span>
+          <select name="cars" class="voucher-first-line-dropbox2">
+            <option value="T">C.V</option>
+          </select></label
+        >
+      </div>
+      <div class="voucher-second-line">
+        <div class="voucher-second-line-radio">
+          <div class="voucher-second-line-radio1">
+            <input
+              type="radio"
+              name="voucher"
+              value="new"
+              class="voucher-second-line-input voucher-second-line-input-first"
+            /><label><span>New</span></label>
+          </div>
+          <div class="voucher-second-line-radio2">
+            <input
+              type="radio"
+              name="voucher"
+              value="old"
+              class="voucher-second-line-input voucher-second-line-input-first"
+            /><label> <span>Old</span></label>
+          </div>
+        </div>
+        <label
+          ><span>Cash</span
+          ><input
+            type="number"
+            class="voucher-second-line-input voucher-second-line-input-second"
+        /></label>
+        <label
+          ><span>A/c</span
+          ><input
+            type="text"
+            class="voucher-second-line-input voucher-second-line-input-third"
+        /></label>
+      </div>
+      <div class="voucher-third-line">
+        <label
+          ><span>A/c Code</span
+          ><input
+            type="text"
+            class="voucher-third-line-input voucher-third-line-input-first"
+        /></label>
+        <label
+          ><span>A/c Name</span
+          ><input
+            type="text"
+            class="
+              voucher-third-line-input voucher-fir-third-line-input-second
+            "
+        /></label>
+        <label
+          ><span>Debit</span
+          ><input
+            type="text"
+            class="voucher-third-line-input voucher-fir-third-line-input-third"
+        /></label>
+        <label
+          ><span>Credit</span
+          ><input
+            type="text"
+            class="
+              voucher-third-line-input voucher-fir-third-line-input-fourth
+            "
+        /></label>
+      </div>
+      <div class="voucher-fourth-line">
+        <label
+          ><span>Description</span
+          ><input
+            type="text"
+            class="voucher-fourth-line-input voucher-fourth-line-input-first"
+        /></label>
+      </div>
+
+      <div class="voucher-fifth-line">
+        <label
+          ><span>Total Debit</span
+          ><input
+            type="text"
+            class="voucher-fifth-line-input voucher-fifth-line-input-first"
+        /></label>
+        <label
+          ><span>Total Credit</span
+          ><input
+            type="text"
+            class="voucher-fifth-line-input voucher-fifth-line-input-second"
+        /></label>
+        <label
+          ><span>Differece</span
+          ><input
+            type="text"
+            class="voucher-fifth-line-input voucher-fifth-line-input-third"
+        /></label>
+      </div>
+    </section>
+
+    <section class="voucher">
+      <div class="voucher-buttons">
+        <button class="voucher-buttons-button voucher-buttons-button-add">
+          Add
+        </button>
+        <button class="voucher-buttons-button voucher-buttons-button-save">
+          Save
+        </button>
+        <button class="voucher-buttons-button voucher-buttons-button-cancel">
+          Cancel
+        </button>
+        <button class="voucher-buttons-button voucher-buttons-button-report">
+          Report
+        </button>
+      </div>
+    </section>
+
+    <section class="voucher-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Voucher Description</th>
+            <th>
+              <i class="flaticon-edit"></i><span>|</span
+              ><i class="far fa-trash-alt"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>customers</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>
+              <a href="#" class="voucher-table-icon voucher-table-edit"
+                ><i class="flaticon-edit edit"></i></a
+              ><span>|</span
+              ><a href="#" class="voucher-table-icon voucher-table-delete"
+                ><i class="far fa-trash-alt delete"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div> -->
+<div class="item3">
+<section class="adduser">
+    <h1 class="adduser-heading">Add user</h1>
+    <div class="adduser-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <section class="adduser-inputs">
+                <label>Username</label> {{form.username}}
+                <label>Email</label>{{form.email}}
+                <label>Password</label>{{form.password1}}
+                <label>Re-Enter Password</label>{{form.password2}}
+                <p>Please select Permission:</p>
+
+                <div class="adduser-inputs-radio">
+                    <div class="adduser-inputs-radio1">
+                        <input id="adduser-inputs-excuded1" type="radio" id="age1" name="permission" value="admin" />
+                        <label>Admin</label>
+                    </div>
+                    <div class="adduser-inputs-radio1">
+                        <input id="adduser-inputs-excuded2" type="radio" id="age2" name="permission" value="worker" />
+                        <label>Worker</label>
+                    </div>
+                </div>
+                <button id="adduser-inputs-submit" type="submit" name="submit">Submit</button>
+
+            </section>
+        </form>
+    </div>
+</section>
+</div>
+<script>
+    //Query All input fields
+    var form_fields = document.getElementsByTagName("input");
+    form_fields[1].placeholder = "Username..";
+    form_fields[2].placeholder = "Email..";
+    form_fields[3].placeholder = "Enter password...";
+    form_fields[4].placeholder = "Re-enter Password...";
+
+    for (var field in form_fields) {
+        form_fields[field].className += " form-control";
+    }
+</script>
+{% endblock %}

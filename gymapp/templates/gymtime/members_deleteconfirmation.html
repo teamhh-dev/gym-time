@@ -1,0 +1,42 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token%}
+        <section class="members">
+            <div class="members-buttons">
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-save" type="submit" name="delete">Delete</button>
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-edit" type="submit" name="cancel">Cancel</button>
+            </div>
+
+        </section>
+
+    </form>
+
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th class="member-table-name">F/H Name</th>
+                <th>DOB</th>
+                <th>CNIC</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{member.name}}</td>
+                <td class="member-table-name">{{member.surname}}</td>
+                <td>{{member.dob}}</td>
+                <td>{{member.cnic}}</td>
+                <td>{{member.mobile}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock %}

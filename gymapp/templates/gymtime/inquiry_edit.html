@@ -1,0 +1,180 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> Moment.js
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script> -->
+
+<div class="item3">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section class="inquiry-inputs">
+            <h1 class="inquiry-main-heading">Inquiry</h1>
+
+            <div class="inquiry-first-line">
+                <!-- <div class="inquiry-first-line-input"> -->
+                <label class="inquiry-first-line-input-text-first"><span>Code</span><input type="text" disabled class="
+                inquiry-first-line-input-text inquiry-first-line-input-text-first
+              " /></label>
+                <label><span>Name*</span>
+                    <div class="
+                inquiry-first-line-input-text inquiry-first-line-input-text-second
+              ">
+                        {{form.name}}
+                    </div>
+                </label>
+                <label><span>Surname*</span>
+                    <div class="
+                inquiry-first-line-input-text inquiry-first-line-input-text-second
+              ">
+                        {{form.surname}}
+                    </div>
+                </label>
+                <label class="inquiry-first-line-input-text-third"><span>Service*</span>
+                    <div class="
+                inquiry-first-line-input-text inquiry-first-line-input-text-third
+              ">
+                        {{form.service}}
+                    </div>
+                </label>
+                <!-- </div> -->
+            </div>
+
+            <div class="inquiry-second-line">
+                <!-- <label><span>Address</span><input type="text" class="inquiry-second-line-input inquiry-second-line-input-first"></label> -->
+                <label class="inquiry-second-line-text"><span>Gender*</span>{{form.gender}}</label>
+                <label class="inquiry-second-line-text-label-caontact"><span>Contact*</span>
+                    <div class="inquiry-second-line-text">{{form.contact}}</div>
+                </label>
+                <label class="inquiry-second-line-text-label-cnic"><span>Reference*</span>
+                    <div class="inquiry-second-line-text">{{form.reference}}</div>
+                </label>
+                <label class="inquiry-second-line-text-label-cnic"><span>Remarks*</span>
+                    <div class="inquiry-second-line-text">{{form.remarks}}</div>
+                </label>
+            </div>
+
+            <div class="inquiry-second-line">
+                <label class="inquiry-second-line-text-label-cnic"><span>Followup Date*</span>
+                    <div class="inquiry-second-line-text">{{form.followup_date}}</div>
+                </label>
+            </div>
+
+        </section>
+
+        <section class="inquiry">
+            <div class="inquiry-buttons">
+                <button class="inquiry-buttons-button inquiry-buttons-button-save" id="inquiry-buttons-button-save"
+                    type="submit" name="save">
+                    Save
+                </button>
+                <button class="inquiry-buttons-button inquiry-buttons-button-cancel" type="reset" name="cancel">
+                    Cancel
+                </button>
+                <button class="inquiry-buttons-button inquiry-buttons-button-report">
+                    Report
+                </button>
+            </div>
+        </section>
+    </form>
+
+    <section class="inquiry-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr</th>
+                    <th>Code</th>
+                    <th class="inquiry-table-name">Name</th>
+                    <th>Service</th>
+                    <th>Contact</th>
+                    <th>Date</th>
+                    <th>
+                        <i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for traine in inquiries %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{traine.code}}</td>
+                    <td class="inquiry-table-name">{{traine.name}}</td>
+                    <td>{{traine.service}}</td>
+                    <td>{{traine.contact}}</td>
+                    <td>{{traine.date}}</td>
+                    <td>
+                        <a href="{% url 'updateinquiry' traine.primaryno %}"
+                            class="inquiry-table-icon inquiry-table-edit"><i
+                                class="flaticon-edit edit"></i></a><span>|</span>
+                        <a href="{% url 'deleteinquiry' traine.primaryno %}"
+                            class="inquiry-table-icon inquiry-table-delete"><i class="flaticon-trash trash"></i></a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<script>
+    const checkDateFormat = document.getElementById("inquiry-buttons-button-save");
+    const dateCheck = document.getElementById("id_followup_date");
+
+    checkDateFormat.addEventListener("click", function (e) {
+        function validatedate(dateString) {
+            let dateformat =
+                /^\d{4}[-](0?[1-9]|[1-2][0-9]|3[01])[-](0?[1-9]|1[0-2])$/;
+
+            // \^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$\;
+            // /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[1-2][0-9]|3[01])
+
+            // Match the date format through regular expression
+            if (dateString.match(dateformat)) {
+                let operator = dateString.split("-");
+
+                // Extract the string into month, date and year
+                let datepart = [];
+                if (operator.length > 1) {
+                    pdatepart = dateString.split("-");
+                }
+                let year = parseInt(datepart[2]);
+                let month = parseInt(datepart[0]);
+                let day = parseInt(datepart[1]);
+
+                // Create list of days of a month
+                let ListofDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                if (month == 1 || month > 2) {
+                    if (day > ListofDays[month - 1]) {
+                        ///This check is for Confirming that the date is not out of its range
+                        return false;
+                    }
+                } else if (month == 2) {
+                    let leapYear = false;
+                    if ((!(year % 4) && year % 100) || !(year % 400)) {
+                        leapYear = true;
+                    }
+                    if (leapYear == false && day >= 29) {
+                        return false;
+                    } else if (leapYear == true && day > 29) {
+                        e.preventDefault();
+                        alert("Please Enter a Valid Date Format YYYY-MM-DD or Invalid Date Month(1-12) Day (1-31)");
+                        return false;
+                    }
+                }
+            } else {
+                e.preventDefault();
+                alert("Please Enter a Valid Date Format YYYY-MM-DD or Invalid Date Month(1-12) Day (1-31)");
+                return false;
+            }
+            return true;
+        }
+
+        var a = validatedate(dateCheck.value);
+        console.log(a);
+    });
+</script>
+{% endblock %}

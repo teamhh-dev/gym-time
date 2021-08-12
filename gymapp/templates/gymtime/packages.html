@@ -1,0 +1,98 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+
+<div class="item3">
+  <form action="" method="POST">
+    {% csrf_token%}
+    <section class="packages-inputs">
+      <h1 class="packages-main-heading">Packages</h1>
+      <div class="packages-first-line">
+        <label
+          ><span>Code</span
+          ><input
+            type="text"
+            disabled
+            class="packages-first-line-input packages-first-line-input-first"
+        /></label>
+        <label
+          ><span>Description</span>
+          <div
+            class="packages-first-line-input packages-first-line-input-second"
+          >
+            {{form.description}}
+          </div></label
+        >
+        <label class="packages-first-line-input-third"
+          ><span>Charges</span>
+          <div
+            class="packages-first-line-input packages-first-line-input-third"
+          >
+            {{form.charges}}
+          </div></label
+        >
+      </div>
+    </section>
+
+    <section class="packages">
+      <div class="packages-buttons">
+        <button
+          class="packages-buttons-button packages-buttons-button-save"
+          type="submit"
+          name="save"
+        >
+          Save
+        </button>
+        <button
+          class="packages-buttons-button packages-buttons-button-cancel"
+          type="reset"
+          name="cancel"
+        >
+          Cancel
+        </button>
+        <button class="packages-buttons-button packages-buttons-button-report">
+          Report
+        </button>
+      </div>
+    </section>
+
+    <section class="packages-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr</th>
+            <th>Code</th>
+            <th class="services-table-description">Description</th>
+            <th>Charges</th>
+            <th>
+              <i class="flaticon-edit"></i><span>|</span
+              ><i class="flaticon-trash trash"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for package in packages %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{package.code}}</td>
+            <td class="services-table-description">{{package.description}}</td>
+            <td>{{package.charges}}</td>
+            <td>
+              <a
+                href="{% url 'updatepackages' package.primaryno %}"
+                class="packages-table-icon packages-table-edit"
+                ><i class="flaticon-edit edit"></i></a
+              ><span>|</span>
+              <a
+                href="{% url 'deletepackage' package.primaryno %}"
+                class="packages-table-icon packages-table-delete"
+                ><i class="flaticon-trash trash"></i
+              ></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </form>
+</div>
+{% endblock %}

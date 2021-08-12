@@ -1,0 +1,44 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token%}
+        <section class="members">
+            <div class="members-buttons">
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-save" type="submit" name="cancel">
+                    cancel
+                </button>
+                <button class="members-buttons-button members-buttons-button-cancel" type="submit" name="delete">
+                    Delete
+                </button>
+            </div>
+        </section>
+    </form>
+
+    <section class="transaction-table">
+        <table class="transaction-table-print" id="company-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="transaction-table-name">Due Amount</th>
+                    <th class="transaction-table-address">Paid Amount</th>
+                    <th>Balance</th>
+                    <th>Due Date</th>
+                    <th>Paid Date</th>
+                    <th>Voucher#</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="transaction-table-print-tr">
+                    <td>{{transaction.member_code}}</td>
+                    <td class="transaction-table-name">{{transaction.due_amt}}</td>
+                    <td class="transaction-table-address">{{transaction.paid_amt}}</td>
+                    <td>{{transaction.balance}}</td>
+                    <td>{{transaction.due_date}}</td>
+                    <td>{{transaction.paid_date}}</td>
+                    <td>{{transaction.vouchno}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>{% endblock %}

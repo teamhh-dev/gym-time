@@ -1,0 +1,302 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token%}
+        <section class="members-inputs" id="members-form">
+            <h1 class="members-main-heading">Members</h1>
+
+            <div class="formating-edit-members">
+                <div>
+                    <div class="members-first-line">
+                        <div class="members-first-line-input">
+                            <label><span>Code*</span><input type="text" disabled
+                                    class="members-first-line-input-text members-first-line-input-text-first"></label>
+                            <label><span>Name*</span>
+                                <div class="members-first-line-input-text members-first-line-input-text-second">
+                                    {{form.name}}
+                                </div>
+                            </label>
+                            <label class="members-first-line-input-text"><span>F/H Name*</span>
+                                <div class="members-first-line-input-text members-first-line-input-text-third">
+                                    {{form.surname}}
+                                </div>
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="members-second-line">
+                        <div class="members-second-line-input">
+                            <label><span>Weight*</span>
+                                <div class="members-second-line-input-text members-second-line-input-text-first">
+                                    {{form.weight}}
+                                </div>
+                            </label>
+                            <label class="members-second-line-input-text-second"><span>CNIC*</span>
+                                <div class="members-second-line-input-text members-second-line-input-text-second">
+                                    {{form.cnic}}
+                                </div>
+                            </label>
+                            <label class="members-second-line-input-text"><span>Gender*</span>
+                                <!-- <select name="" class="members-second-line-dropbox">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select> -->
+                                {{form.gender}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="members-third-line">
+                        <div class="members-third-line-input">
+                            <label><span>Mobile*</span>
+                                <div class="members-third-line-input-text members-third-line-input-text-first">
+                                    {{form.mobile}}
+                                </div>
+                            </label>
+                            <label class="members-third-line-input-text-second"><span>Booking No*</span>
+                                <div class="members-third-line-input-text members-third-line-input-text-second">
+                                    {{form.whatsapp}}</div>
+                            </label>
+                            <label class="members-third-line-input-text-third"><span>Address</span>
+                                <div class="members-third-line-input-text members-third-line-input-text-third">
+                                    {{form.address}}
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="members-fourth-line">
+                        <div class="members-fourth-line-input">
+                            <div class="members-fourth-line-input-checkbox">
+                                <!-- <input type="checkbox">Trainer
+                                <input type="checkbox">Admission Fee
+                                <input type="checkbox">Active -->
+                                <!-- <input type="checkbox">Trainer
+                                <input type="checkbox">Admission Fee  -->
+                                {{form.active}}Active
+                            </div>
+
+
+                            <label class="members-fourth-line-input-text-second"><span>Packages*</span>
+                                <div class="members-third-line-input-text members-third-line-input-text-second">
+                                    {{form.package}}</div>
+                            </label>
+                            <!-- <label class="members-fourth-line-input-text-second"><span>Package*</span>
+                                <!-- <select name="" class="members-second-line-dropbox">
+                                    <option value="MC3">3 Months Cardio</option>
+                                    <option value="MS3">3 Months Strength</option>
+                                    <option value="MFP4">4 Months Full Package</option>
+                                    <option value="MS6">6 Months Strength</option>
+                                    <option value="SM">Strength Monthly</option>
+                                </select> -->
+                            <!-- {% for entry in form.packages %}
+                                {{entry.description}}
+                                {% endfor %} -->
+                            <!-- <option value="">---------</option>
+                                {% for entry in packages %}
+                                <option value="{{ city.pk }}">{{ city.name }}</option>
+                                {% endfor %}
+                                
+                            </label> -->
+                            <label class="members-fourth-line-input-text-third"><span>Notes</span>
+                                <div class="members-fourth-line-input-text members-fourth-line-input-text-third">
+                                    {{form.notes}}
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="members-fifth-line">
+                        <div class="members-fifth-line-input">
+                            <label><span>Start Date*</span>
+                                <div class="members-fifth-line-input-text members-fifth-line-input-text-first">
+                                    {{form.start}}
+                                </div>
+                            </label>
+                            <label class="members-fifth-line-input-text-second"><span>End Date*</span>
+                                <div class="members-fifth-line-input-text members-fifth-line-input-text-second">
+                                    {{form.end}}
+                                </div>
+                            </label>
+                            <label class="members-fifth-line-input-text-third"><span>Entry Date</span>
+                                <dv class="members-fifth-line-input-text members-fifth-line-input-text-third">
+                                    {{form.date}}
+                        </div></label>
+                    </div>
+
+                    <div class="members-sixth-line">
+                        <div class="members-sixth-line-input">
+                            <label class="members-sixth-line-input-text-first error"><span
+                                    id="margin-left: -5px;">Member
+                                    Fee</span>
+                                <div class="members-sixth-line-input-text members-sixth-line-input-text-third error">
+                                    {{form.trainerfee}}</div>
+                            </label>
+
+                            <label class="members-sixth-line-input-text-third"><span>Personal Trainer Fee</span>
+                                <div class="members-sixth-line-input-text members-sixth-line-input-text-third">
+                                    {{form.personaltrainerfee}}
+                                </div>
+                            </label>
+                            <label class="members-sixth-line-input-text-third"><span>Admission Fee</span>
+                                <div class="members-sixth-line-input-text members-sixth-line-input-text-third">
+                                    {{form.Admissionfee}}</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="members-seventh-line">
+                        <div class="members-seventh-line-input">
+                            <label class="members-seventh-line-input-text-third error"><span>Locker Fee</span>
+                                <div
+                                    class="members-seventh-line-input-text members-seventh-line-input-text-third error">
+                                    {{form.lockerfee}}</div>
+                            </label>
+                            <label class="members-seventh-line-input-text-third"><span>Locker No</span>
+                                <div class="members-seventh-line-input-text members-seventh-line-input-text-third">
+                                    {{form.lockerno}}</div>
+                            </label>
+
+                            <button id="members-seventh-buttons-button-save" type="submit"
+                                name="save">Calculate</button>
+
+                            <label class="members-seventh-line-input-text-third"><span>Total Fee</span>
+                                <div class="members-seventh-line-input-text members-seventh-line-input-text-third">
+                                    {{form.totalfee}}</div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="members-img">
+                    {% if member.image.url is not empty %}
+                    <img src="{{member.image.url}}" alt="" class="members-img-input members-img-input-box" id= "blah"/>
+                    {% endif %}
+                    <div class="members-img-content">{{form.image}}</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="members">
+            <div class="members-buttons">
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-save"
+                    type="submit" name="save">Save</button>
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-edit"
+                    type="button">Edit</button>
+                <!-- <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-back"
+                    type="button">Back</button> -->
+                <button class="members-buttons-button members-buttons-button-cancel" type="submit"
+                    name="cancel">Cancel</button>
+                <button class="members-buttons-button members-buttons-button-report">Report</button>
+            </div>
+
+</div>
+
+
+
+</section>
+
+</form>
+
+
+
+<section id="member-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th class="member-table-name">F/H Name</th>
+                <th>DOB</th>
+                <th>CNIC</th>
+                <th>Mobile</th>
+                <th>
+                    <i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for traine in members%}
+            <tr>
+                <td>{{traine.name}}</td>
+                <td class="member-table-name">{{traine.surname}}</td>
+                <td>{{traine.dob}}</td>
+                <td>{{traine.cnic}}</td>
+                <td>{{traine.mobile}}</td>
+                <td>
+                    <a href="{% url 'updatemembers' traine.primaryno %}" class="member-table-icon member-table-edit"><i
+                            class="flaticon-edit edit"></i></a><span>|</span>
+                    <a href="{% url 'deletemembers' traine.primaryno %}"
+                        class="member-table-icon member-table-delete"><i class="flaticon-trash trash"></i></a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+
+</div>
+<script>
+    const trineeFee = document.getElementById('id_trainerfee');
+    const personalTraineeFee = document.getElementById('id_personaltrainerfee');
+    const addmissionFee = document.getElementById('id_Admissionfee');
+    const lockerFee = document.getElementById('id_lockerfee');
+    let totalFee = document.getElementById('id_totalfee');
+    const calculateButton = document.getElementById('members-seventh-buttons-button-save');
+    // console.log(saveButton);
+    // totalFee.addEventLisener('click', function() {
+    //     // e.preventDeault(); 
+    //     totalFee.value = trineeFee.value + personalTraineeFee.value + addmissionFee.value + lockerFee.value;
+    // });
+    // console.log(totalFee.value = parseInt(trineeFee.value) + parseInt(personalTraineeFee.value) + parseInt(addmissionFee.value) + parseInt(lockerFee.value));
+
+    totalFee.readOnly = true;
+
+    calculateButton.addEventListener('click', () => {
+        // e.preventDeault();
+        totalFee.value = parseInt(trineeFee.value) + parseInt(personalTraineeFee.value) + parseInt(lockerFee.value);
+    });
+
+    const editMember = document.getElementById('member-table');
+    const editBtn = document.getElementById('members-buttons-button-edit');
+    const deleteBtn = document.getElementById('members-buttons-button-delete');
+    const backBtn = document.getElementById('members-buttons-button-back');
+    const memberForm = document.getElementById('members-form');
+
+    
+
+    // backBtn.addEventListener('click', function () {
+    //     memberForm.style.opacity = 1;
+    //     memberForm.style.visibility = 'visible';
+    //     editMember.style.opacity = 0;
+    //     editMember.style.visibility = 'hidden';
+    // });
+    document.getElementById("id_dob").type = 'date';
+    document.getElementById("id_start").type = 'date';
+    document.getElementById("id_end").type = 'date';
+    document.getElementById("id_date").type = 'date';
+    
+    
+    document.getElementById('id_image').setAttribute('onchange', 'readURL(this);');
+    
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('blah')
+                    .setAttribute('src', e.target.result);
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+</script>
+
+{% endblock %}

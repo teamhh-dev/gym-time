@@ -1,0 +1,43 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<div class="item3">
+    <form action="" method="POST">
+        {%csrf_token%}
+        <section class="members">
+            <div class="members-buttons">
+                <button class="members-buttons-button members-buttons-button-save" id="members-buttons-button-save" type="submit" name="delete">
+                    Delete
+                </button>
+                <button class="members-buttons-button members-buttons-button-cancel" type="submit" name="delete">
+                    Cancel
+                </button>
+            </div>
+        </section>
+
+        <section class="voucher-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Voucher Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{voucher.party}}</td>
+                        <td>{{voucher.partydescript}}</td>
+                        <td>{{voucher.debit}}</td>
+                        <td>{{voucher.credit}}</td>
+                        <td>{{voucher.descript}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </form>
+</div>
+<!-- {% for accounts in chartsofaccounts %} {{accounts.description}}{{accounts.party}}{% endfor %} -->
+
+{% endblock %}

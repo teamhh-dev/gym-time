@@ -1,0 +1,170 @@
+{% extends 'gymtime/dashboard.html' %}{% load static %}{% block content %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script> -->
+
+<div class="item3">
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <section class="trainee-inputs">
+      <h1 class="trainee-main-heading">Trainee</h1>
+      <!-- <div class="trainee-img">
+        <img src="" alt="" class="trainee-img-input trainee-img-input-box">
+        <input type="file" class="trainee-img-input trainee-img-input-button">
+      </div> -->
+
+      <div class="formating-edit-trainee">
+        <div>
+          <div class="trainee-first-line">
+            <div class="trainee-first-line-input">
+              <div class="remove-margin">
+                <label class="trainee-first-line-input-text-first"><span>Code</span><input type="text" disabled class="
+                      trainee-first-line-input-text
+                      trainee-first-line-input-text-first
+                    " /></label>
+                <label><span>Name*</span>
+                  <div class="
+                      trainee-first-line-input-text
+                      trainee-first-line-input-text-second
+                    ">
+                    {{form.name}}
+                  </div>
+                </label>
+                <label class="trainee-first-line-input-text-third-edit"><span>Date of Birth*</span>
+                  <div name="dob" class="
+                      trainee-first-line-input-text
+                      trainee-first-line-input-text-third
+                    ">
+                    {{form.dob}}
+                  </div>
+                </label>
+              </div>
+
+              <!-- <label><span>Date of Birth*</span></label> -->
+
+              <!-- <div class="input-group date" id="datetimepicker1" data-target-input="nearest"> -->
+              <!-- {{form.dob}} -->
+              <!-- <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            {{form.dob}}
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div> -->
+              <!-- <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>-->
+            </div>
+
+            <!-- <script>
+                        $(function() {
+                            $("#datetimepicker1").datetimepicker({
+                                format: 'DD/MM/YYYY',
+                            });
+                        });
+                    </script> -->
+          </div>
+          <div class="trainee-second-line">
+            <div class="trainee-second-line">
+              <!-- <label><span>Address</span><input type="text" class="trainee-second-line-input trainee-second-line-input-first"></label> -->
+              <label class="trainee-second-line-text"><span>Gender*</span>{{form.gender}}</label>
+              <label class="trainee-second-line-text-label-caontact"><span>Contact*</span>
+                <div class="trainee-second-line-text">
+                  {{form.contact}}
+                </div>
+              </label>
+              <label class="trainee-second-line-text-label-cnic"><span>CNIC*</span>
+                <div class="trainee-second-line-text">{{form.cnic}}</div>
+              </label>
+            </div>
+          </div>
+          <section class="trainee">
+            <div class="trainee-buttons">
+              <button class="trainee-buttons-button trainee-buttons-button-save" id="trainee-buttons-button-save"
+                type="submit" name="save">
+                Save
+              </button>
+              <button class="trainee-buttons-button trainee-buttons-button-cancel" type="reset" name="cancel">
+                Cancel
+              </button>
+              <button class="trainee-buttons-button trainee-buttons-button-report">
+                Report
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <div class="trainee-img">
+          {% if trainie.image.url is not empty %}
+          <img src="{{trainie.image.url}}" alt="" class="trainee-img-input trainee-img-input-box" id="blah"/>
+          {% endif %}
+          <div class="trainee-img-content">{{form.image}}</div>
+
+          <!-- <input type="file" class="trainee-img-input trainee-img-input-button"> -->
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <section class="trainee-table" id="trainee-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Sr</th>
+          <th>Code</th>
+          <th class="trainee-table-name">Name</th>
+          <th>CNIC</th>
+          <th>Contact</th>
+          <th>DOB</th>
+          <th>
+            <i class="flaticon-edit"></i><span>|</span><i class="flaticon-trash trash"></i>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for traine in trainies%}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{traine.code}}</td>
+          <td class="trainee-table-name">{{traine.name}}</td>
+          <td>{{traine.cnic}}</td>
+          <td>{{traine.contact}}</td>
+          <td>{{traine.dob}}</td>
+          <td>
+            <a href="{% url 'updatetrainee' traine.primaryno %}" class="trainee-table-icon trainee-table-edit"><i
+                class="flaticon-edit edit"></i></a><span>|</span>
+            <a href="{% url 'deletetrainee' traine.primaryno %}" class="trainee-table-icon trainee-table-delete"><i
+                class="flaticon-trash trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+  document.getElementById('id_dob').type = 'date';
+  document.getElementById('id_image').setAttribute('onchange', 'readURL(this);');
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById('blah')
+          .setAttribute('src', e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+<!-- <script src="{% static 'js/none.js'%}"></script> -->
+{% endblock %}

@@ -1,0 +1,229 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">{% block content0 %} {% endblock %}
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="logout">
+        <div class="grid-container">
+            <div class="item1">
+                <div id="user-set">
+                    <section class="topmenu">
+
+
+
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'trainee' %}" class="topmenu-link-icon"><i class="flaticon-trainer"></i></a>
+                            <a href="{% url 'trainee' %}" class="topmenu-link-description">Trainee</a>
+                        </div>
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'members' %}" class="topmenu-link-icon"><i class="flaticon-user-1"></i></a>
+                            <a href="{% url 'members' %}" class="topmenu-link-description">Members</a>
+                        </div>
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'member_search' %}" class="topmenu-link-icon"><i
+                                    class="flaticon-inquiry"></i></a>
+                            <a href="{% url 'member_search' %}" class="topmenu-link-description">Search Members</a>
+                        </div>
+
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'transactions' %}" class="topmenu-link-icon"><i
+                                    class="flaticon-fees"></i></a>
+                            <a href="{% url 'transactions' %}" class="topmenu-link-description">Fee Collection</a>
+                        </div>
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'accountsvoucher' %}" class="topmenu-link-icon"><i
+                                    class="flaticon-coupon"></i></a>
+                            <a href="{% url 'accountsvoucher' %}" class="topmenu-link-description">Account Vouchers</a>
+                        </div>
+
+                        <div class="topmenu-link">
+                            <a href="{% url 'changepassword' %}" class="topmenu-link-icon"><i
+                                    class="flaticon-rotation-lock"></i></a>
+                            <a href="{% url 'changepassword' %}" class="topmenu-link-description">Change User
+                                Password</a>
+                        </div>
+
+                        <div class="topmenu-link">
+                            <a href="#" class="topmenu-link-icon topmenu-link-description-logout"><i
+                                    class="flaticon-logout"></i></a>
+                            <a href="#" class="topmenu-link-description topmenu-link-description-logout">Logout</a>
+                        </div>
+                    </section>
+                    <!-- <span id="user-show">Hello, {{request.user}}</span> -->
+                </div>
+
+            </div>
+
+            <div class="item2">
+                <div id="body-pd">
+                    <div class="l-navbar" id="navbar">
+                        <nav class="nav">
+                            <div>
+                                <div class="nav__list">
+                                    <a href="{% url 'dashboard' %}" class="nav__link active">
+                                        <i class="flaticon-home nav__icon"></i>
+                                        <span class="nav__name">Dashboard</span>
+                                    </a>
+                                    <div class="nav__link collapse">
+                                        <i class="flaticon-maintenance nav__icon"></i>
+                                        <span class="nav__name">Setup</span>
+
+                                        <i class="
+                            flaticon-arrow-down-sign-to-navigate
+                            collapse__link
+                          "></i>
+
+                                        <ul class="collapse__menu">
+                                            <a href="{% url 'trainee' %}" class="collapse__sublink"><i
+                                                    class="flaticon-trainer"></i>Trainee</a>
+                                            <a href="{% url 'members' %}" class="collapse__sublink"><i
+                                                    class="flaticon-user-1"></i>Members</a>
+                                        </ul>
+                                    </div>
+
+                                    <div class="nav__link collapse">
+                                        <i class="flaticon-enter nav__icon"></i>
+                                        <span class="nav__name">Entry</span>
+
+                                        <i class="
+                            flaticon-arrow-down-sign-to-navigate
+                            collapse__link
+                          "></i>
+
+                                        <ul class="collapse__menu">
+                                            <a href="{% url 'transactions' %}" class="collapse__sublink"><i
+                                                    class="flaticon-fees"></i>Fee
+                                                Collection</a>
+                                            <a href="{% url 'accountsvoucher' %}" class="collapse__sublink"><i
+                                                    class="flaticon-coupon"></i>Account
+                                                Vouchers</a>
+                                        </ul>
+                                    </div>
+
+                                    <div class="nav__link collapse">
+                                        <i class="flaticon-settings nav__icon"></i>
+                                        <span class="nav__name">Settings</span>
+
+                                        <i class="
+                            flaticon-arrow-down-sign-to-navigate
+                            collapse__link
+                          "></i>
+
+                                        <ul class="collapse__menu">
+                                            <a href="{% url 'changepassword' %}" class="collapse__sublink"><i
+                                                    class="flaticon-rotation-lock"></i>
+                                                Change User
+                                                Password</a>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" class="nav__link topmenu-link-description-logout2">
+                                <i class="flaticon-logout nav__icon topmenu-link-description-logout2"></i></ion-icon>
+                                <span class="nav__name topmenu-link-description-logout2">Log Out</span>
+                            </a>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            {% block content %}
+            <div class="item3">
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <h1 class="dashboard-card-heading">Active Members</h1>
+                        <h1 class="dashboard-card-value">{{members}}</h1>
+
+                    </div>
+
+                    <!-- <div class="dashboard-card">
+                        <h1 class="dashboard-card-heading">Inactive Members</h1>
+                        <h1 class="dashboard-card-value">{{members_notactive}}</h1>
+
+                    </div> -->
+                    {% if dues is NONE%}
+                    <div class="dashboard-card">
+                        <h1 class="dashboard-card-heading">Pending Dues</h1>
+                        <h1 class="dashboard-card-value">0</h1>
+
+                    </div>
+                    {% else %}
+                    <div class="dashboard-card">
+                        <h1 class="dashboard-card-heading">Pending Dues</h1>
+                        <h1 class="dashboard-card-value">{{dues}}</h1>
+
+                    </div>
+                    {% endif%}
+                </div>
+
+                <section class="dashboard-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="dashboard-sr-table">Sr</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Dues</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            {% for dues_detail in dues_detail%}
+                            <tr>
+                                <td id="dashboard-sr-table">{{forloop.counter}}</td>
+                                <td>{{dues_detail.member_code.name}}</td>
+                                <td>{{dues_detail.member_code.mobile}}</td>
+                                <td>{{dues_detail.due_amt}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+            {% endblock %}
+        </div>
+        <div class="logout-form">
+            <p class="logout-form-para">
+                Are sure do you want to logout?
+            </p>
+
+            <div class="logout-form-buttons">
+                <a href="{% url 'logout' %}" class="logout-form-button logout-form-button-ok"><span>Ok</span>
+                </a>
+                <a href="#" class="logout-form-button logout-form-button-cancel"><span>Cancel</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'js/sidemenu.js'%}"></script>
+</body>
+
+</html>
