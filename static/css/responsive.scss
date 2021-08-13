@@ -1,0 +1,304 @@
+@mixin flexCenter {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    flex: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        // display: none !important;
+    }
+    body {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .logout {
+        width: 100% !important;
+        @include flexCenter;
+        .grid-container {
+            @include flexCenter;
+            justify-content: center;
+            padding: 1rem !important;
+            width: 100% !important;
+        }
+        .item1 {
+            display: none !important;
+        }
+        .item2 {
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            min-height: fit-content !important;
+            #body-pd,
+            #navbar {
+                height: fit-content !important;
+                width: 100% !important;
+                min-height: fit-content !important;
+                padding: 0 !important;
+            }
+            .nav {
+                position: relative;
+                height: fit-content !important;
+                min-height: fit-content !important;
+                padding: 1rem !important;
+                .nav__list,
+                .nav__list .active {
+                    margin: 0 !important;
+                }
+                .nav__list .collapse {
+                    display: none !important;
+                    margin: 0.5rem !important;
+                }
+                .topmenu-link-description-logout2 {
+                    display: none !important;
+                }
+                .menu-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    left: 85%;
+                    top: 1.25rem;
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                    transition: all .5s ease-in-out;
+                    border: 0.15rem solid white;
+                    .menu-burger {
+                        width: 1.2rem;
+                        height: 0.25rem;
+                        border-radius: 15%;
+                        // border: 0.2rem solid white;
+                        background-color: white;
+                        transition: all .5s ease-in-out;
+                        &::after,
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 1.2rem;
+                            height: 0.25rem;
+                            border-radius: 15%;
+                            // border: 0.2rem solid white;
+                            background-color: white;
+                            background-color: white;
+                        }
+                        &::before {
+                            transform: translateY(-0.4rem);
+                        }
+                        &::after {
+                            transform: translateY(0.4rem);
+                        }
+                    }
+                }
+            }
+        }
+        .item3 {
+            width: 100% !important;
+            margin-top: 1rem !important;
+            .dashboard-table table,
+            .trainee-table table {
+                overflow: auto;
+                height: 50vh;
+            }
+            #trainee-left-right {
+                width: 100%;
+                margin: 0 !important;
+                @include flexCenter;
+                .trainee-left {
+                    width: 100% !important;
+                    @include flexCenter;
+                    .trainee-first-line {
+                        width: 100%;
+                        position: relative;
+                        @include flexCenter;
+                        .trainee-first-line-input {
+                            // width: 100%;
+                            @include flexCenter;
+                            label {
+                                // width: 100% !important;
+                                @include flexCenter;
+                            }
+                        }
+                    }
+                    .trainee-second-line {
+                        margin-top: 1rem !important;
+                        @include flexCenter;
+                        input {
+                            margin: 0 !important;
+                        }
+                        .trainee-second-line-text {
+                            @include flexCenter;
+                            width: inherit;
+                            margin: 0 !important;
+                        }
+                    }
+                }
+                .trainee-right {
+                    @include flexCenter;
+                }
+            }
+        }
+    }
+    .display {
+        display: block !important;
+    }
+    .nav__link {
+        margin-bottom: 0 !important;
+    }
+    input,
+    select {
+        // width: 80% !important;
+        margin: 0 !important;
+        width: 17rem !important;
+    }
+    label input,
+    select {
+        // width: 90% !important;
+        @include flexCenter;
+        width: 17rem !important;
+    }
+    label {
+        @include flexCenter;
+    }
+    //  ::-webkit-scrollbar {
+    //     width: 8px;
+    //     border-radius: 12px;
+    // }
+    //  ::-webkit-scrollbar-thumb {
+    //     background-color: white;
+    //     border-radius: 12px;
+    // }
+    //  ::-webkit-scrollbar-track {
+    //     background-color: black;
+    // }
+    .members-first-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-second-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-third-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-fourth-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-fifth-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-sixth-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-seventh-line {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-first-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-second-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-third-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-fourth-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-fifth-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-sixth-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-seventh-line-input {
+        @include flexCenter;
+        margin-top: 2rem;
+    }
+    .members-fifth-line-input-text {
+        width: inherit !important;
+    }
+    .members-second-line-input-text {
+        width: inherit !important;
+    }
+    table {
+        // overflow: visible visible !important;
+        overflow: visible;
+        overflow-x: auto !important;
+        height: 70vh !important;
+        width: 100% !important;
+        white-space: nowrap;
+        margin: 0 !important;
+        border-collapse: collapse;
+        z-index: 10;
+        position: relative;
+        thead {
+            top: 0px !important;
+            position: absolute;
+        }
+        th {
+            font-size: 1.2rem;
+        }
+    }
+    .members-inputs div {
+        margin: 0 !important;
+        width: 100% !important;
+        @include flexCenter;
+    }
+    .members-buttons {
+        margin: 1rem !important;
+    }
+    .voucher-first-line {
+        @include flexCenter;
+    }
+    .voucher-second-line {
+        @include flexCenter;
+    }
+    .voucher-second-line-radio {
+        @include flexCenter;
+        .voucher-second-line-radio1 {
+            margin: 0 !important;
+        }
+    }
+    .voucher-third-line {
+        @include flexCenter;
+    }
+    .voucher-fourth-line {
+        @include flexCenter;
+    }
+    .voucher-fifth-line {
+        @include flexCenter;
+    }
+    .change-pass-container {
+        @include flexCenter;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Styles */
+    label input,
+    select,
+    option {
+        width: 30rem !important;
+        @include flexCenter;
+    }
+}

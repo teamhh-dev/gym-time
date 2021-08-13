@@ -8,13 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">{% block content0 %} {% endblock %}
+    <link media="only screen and (min-device-width: 0px) and (max-width:1024px)" href="{% static 'css/responsive.css' %}" type="text/css" rel="stylesheet" />
+
+    <!-- <link rel="stylesheet" href="{% static 'css/responsive.css' %}"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">  -->
+    {% block content0 %} {% endblock %}
     <title>Dashboard</title>
 </head>
 
@@ -145,7 +147,9 @@
                                 <i class="flaticon-logout nav__icon topmenu-link-description-logout2"></i></ion-icon>
                                 <span class="nav__name topmenu-link-description-logout2">Log Out</span>
                             </a>
-
+                            <div class="menu-btn">
+                                <div class="menu-burger"></div>
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -224,6 +228,7 @@
 
 
     <script src="{% static 'js/sidemenu.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

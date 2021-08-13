@@ -50,3 +50,35 @@ cancelBtn.addEventListener("click", function() {
     document.querySelector(".logout-form").style.visibility = "hidden";
     // document.querySelector(".grid-container").style.filter = "blur(0px)";
 });
+
+// hamburger-btn handler
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpened = false;
+// let collapseLinks = document.querySelectorAll(".logout .item2 .nav .nav__list")
+
+menuBtn.addEventListener('click', function() {
+    if (!menuOpened) {
+
+        $.each($(".logout .item2 .nav .nav__list .collapse"), function(indexInArray, valueOfElement) {
+            // $(valueOfElement).css("display", "block !important");
+            $(valueOfElement).attr("style", "display:grid !important");
+        });
+        // $(".nav__link .topmenu-link-description-logout2").attr("style", "display:grid !important");
+        $(".logout .item2 .nav .topmenu-link-description-logout2").css("display", "grid !important");
+
+        console.log($(".menu-burger:before"));
+        $(".menu-burger::before").attr("style", "after:transform: rotate(-45deg);");
+        $(".menu-burger::after").attr("style", "after:transform: rotate(45deg);");
+        // $(".logout .item2 .nav .nav__list .collapse").addClass("display");
+        // document.querySelectorAll(".logout .item2 .nav .nav__list .collapse").style.display = "block !important";
+        menuOpened = true;
+    } else {
+        $.each($(".logout .item2 .nav .nav__list .collapse"), function(indexInArray, valueOfElement) {
+            $(valueOfElement).attr("style", "display:none !important");
+        });
+        $(".nav__link .topmenu-link-description-logout2").attr("style", "display:none !important");
+
+        menuBtn.classList.remove('open');
+        menuOpened = false;
+    }
+});
