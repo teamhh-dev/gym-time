@@ -63,14 +63,13 @@ menuBtn.addEventListener('click', function() {
             // $(valueOfElement).css("display", "block !important");
             $(valueOfElement).attr("style", "display:grid !important");
         });
-        // $(".nav__link .topmenu-link-description-logout2").attr("style", "display:grid !important");
-        $(".logout .item2 .nav .topmenu-link-description-logout2").css("display", "grid !important");
+        $(".logout .item2 .nav .topmenu-link-description-logout2").attr("style", "display:grid !important");
+        $(".logout .item2 .nav .topmenu-link-description-logout2").attr("style", "display:grid !important");
+        // $(".logout .item2 .nav .topmenu-link-description-logout2").css("display", "grid !important");
 
-        console.log($(".menu-burger:before"));
-        $(".menu-burger::before").attr("style", "after:transform: rotate(-45deg);");
-        $(".menu-burger::after").attr("style", "after:transform: rotate(45deg);");
-        // $(".logout .item2 .nav .nav__list .collapse").addClass("display");
-        // document.querySelectorAll(".logout .item2 .nav .nav__list .collapse").style.display = "block !important";
+        // $(".menu-burger::before").attr("style", "after:transform: rotate(-45deg);");
+        // $(".menu-burger::after").attr("style", "after:transform: rotate(45deg);");
+        $(".menu-btn").addClass("rotate-bar");
         menuOpened = true;
     } else {
         $.each($(".logout .item2 .nav .nav__list .collapse"), function(indexInArray, valueOfElement) {
@@ -79,6 +78,8 @@ menuBtn.addEventListener('click', function() {
         $(".nav__link .topmenu-link-description-logout2").attr("style", "display:none !important");
 
         menuBtn.classList.remove('open');
+        $(".menu-btn").removeClass("rotate-bar");
+
         menuOpened = false;
     }
 });

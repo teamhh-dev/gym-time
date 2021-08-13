@@ -91,9 +91,21 @@
                         }
                         &::before {
                             transform: translateY(-0.4rem);
+                            transform: translate(-90deg);
                         }
                         &::after {
                             transform: translateY(0.4rem);
+                            transform: translate(90deg);
+                        }
+                        .rotate-bar {
+                            &::after {
+                                transform: translate(-90deg);
+                            }
+                        }
+                        .rotate-bar {
+                            &::after {
+                                transform: translate(90deg);
+                            }
                         }
                     }
                 }
@@ -290,6 +302,21 @@
     }
     .change-pass-container {
         @include flexCenter;
+        form {
+            @include flexCenter;
+        }
+        .change-pass-inputs {
+            @include flexCenter;
+        }
+    }
+    .menu-burger .rotate-bar::before {
+        transform: translate(90deg);
+    }
+    .menu-burger .rotate-bar::after {
+        transform: translate(-90deg);
+    }
+    .rotate-bar {
+        transform: rotate(90deg);
     }
 }
 

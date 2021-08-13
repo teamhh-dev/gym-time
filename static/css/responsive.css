@@ -138,10 +138,22 @@
   .logout .item2 .nav .menu-btn .menu-burger::before {
     -webkit-transform: translateY(-0.4rem);
             transform: translateY(-0.4rem);
+    -webkit-transform: translate(-90deg);
+            transform: translate(-90deg);
   }
   .logout .item2 .nav .menu-btn .menu-burger::after {
     -webkit-transform: translateY(0.4rem);
             transform: translateY(0.4rem);
+    -webkit-transform: translate(90deg);
+            transform: translate(90deg);
+  }
+  .logout .item2 .nav .menu-btn .menu-burger .rotate-bar::after {
+    -webkit-transform: translate(-90deg);
+            transform: translate(-90deg);
+  }
+  .logout .item2 .nav .menu-btn .menu-burger .rotate-bar::after {
+    -webkit-transform: translate(90deg);
+            transform: translate(90deg);
   }
   .logout .item3 {
     width: 100% !important;
@@ -893,6 +905,60 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+  }
+  .change-pass-container form {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    gap: 1rem !important;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .change-pass-container .change-pass-inputs {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    gap: 1rem !important;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .menu-burger .rotate-bar::before {
+    -webkit-transform: translate(90deg);
+            transform: translate(90deg);
+  }
+  .menu-burger .rotate-bar::after {
+    -webkit-transform: translate(-90deg);
+            transform: translate(-90deg);
+  }
+  .rotate-bar {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
 }
 
