@@ -109,7 +109,7 @@
         -ms-flex-pack: center;
             justify-content: center;
     position: absolute;
-    left: 85%;
+    left: 80%;
     top: 1.25rem;
     width: 2rem;
     height: 2rem;
@@ -158,11 +158,6 @@
   .logout .item3 {
     width: 100% !important;
     margin-top: 1rem !important;
-  }
-  .logout .item3 .dashboard-table table,
-  .logout .item3 .trainee-table table {
-    overflow: auto;
-    height: 50vh;
   }
   .logout .item3 #trainee-left-right {
     width: 100%;
@@ -356,25 +351,6 @@
   }
   label input,
   select {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -ms-flex-wrap: wrap !important;
-        flex-wrap: wrap !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
-    -webkit-box-align: center !important;
-        -ms-flex-align: center !important;
-            align-items: center !important;
-    -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
-    gap: 1rem !important;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     width: 17rem !important;
   }
   label {
@@ -713,19 +689,10 @@
     width: inherit !important;
   }
   table {
-    overflow: visible;
     overflow-x: auto !important;
-    height: 70vh !important;
-    width: 100% !important;
-    white-space: nowrap;
     margin: 0 !important;
-    border-collapse: collapse;
     z-index: 10;
     position: relative;
-  }
-  table thead {
-    top: 0px !important;
-    position: absolute;
   }
   table th {
     font-size: 1.2rem;
@@ -960,6 +927,21 @@
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
   }
+  #change-pass-submit {
+    margin-left: 0 !important;
+    -webkit-transform: translateX(0%) !important;
+            transform: translateX(0%) !important;
+    margin-bottom: 4rem !important;
+  }
+  h1 {
+    font-size: 1.4rem !important;
+  }
+  #member-search {
+    margin: 3rem 1rem !important;
+  }
+  .members-img-content a {
+    width: initial !important;
+  }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -968,6 +950,323 @@
   select,
   option {
     width: 30rem !important;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) {
+  #trainee-left-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    row-gap: 3rem;
+  }
+  #trainee-left-right input,
+  .formating-edit-members input,
+  #trainee-left-right select,
+  .formating-edit-members select {
+    margin-left: 0 !important;
+  }
+  .members-second-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+  }
+  #member-right {
+    margin-left: 0 !important;
+  }
+  .members-first-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-second-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-third-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-fourth-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-fifth-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-sixth-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-seventh-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-first-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-second-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-third-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-fourth-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-fifth-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-sixth-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-seventh-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .members-fifth-line-input-text {
+    width: inherit !important;
+  }
+  .members-second-line-input-text {
+    width: inherit !important;
+  }
+  .members-buttons {
+    width: 100%;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    margin: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+  .trainee-first-line-input {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .trainee-second-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .voucher-first-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .voucher-second-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .voucher-third-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .voucher-fourth-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .voucher-fifth-line {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .change-pass-container form {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
@@ -987,6 +1286,12 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+  }
+  #id_descript {
+    width: 60em;
+  }
+  .grid-container .item2 {
+    background-color: #0c5df4 !important;
   }
 }
 /*# sourceMappingURL=responsive.css.map */

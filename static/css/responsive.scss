@@ -8,6 +8,17 @@
     flex: 1;
 }
 
+@mixin flexLayoutForPC {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    // align-items: center !important;
+    // justify-content: center !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+    // flex: 1;
+}
+
 @media only screen and (max-width: 1024px) {
     * {
         margin: 0;
@@ -64,7 +75,7 @@
                     align-items: center;
                     justify-content: center;
                     position: absolute;
-                    left: 85%;
+                    left: 80%;
                     top: 1.25rem;
                     width: 2rem;
                     height: 2rem;
@@ -116,8 +127,8 @@
             margin-top: 1rem !important;
             .dashboard-table table,
             .trainee-table table {
-                overflow: auto;
-                height: 50vh;
+                // overflow: auto;
+                // height: 50vh;
             }
             #trainee-left-right {
                 width: 100%;
@@ -173,7 +184,7 @@
     label input,
     select {
         // width: 90% !important;
-        @include flexCenter;
+        // @include flexCenter;
         width: 17rem !important;
     }
     label {
@@ -254,18 +265,18 @@
     }
     table {
         // overflow: visible visible !important;
-        overflow: visible;
+        // overflow: visible;
         overflow-x: auto !important;
-        height: 70vh !important;
-        width: 100% !important;
-        white-space: nowrap;
+        // height: 70vh !important;
+        // width: 100% !important;
+        // white-space: nowrap;
         margin: 0 !important;
-        border-collapse: collapse;
+        // border-collapse: collapse;
         z-index: 10;
         position: relative;
         thead {
-            top: 0px !important;
-            position: absolute;
+            // top: 0px !important;
+            // position: absolute;
         }
         th {
             font-size: 1.2rem;
@@ -318,6 +329,20 @@
     .rotate-bar {
         transform: rotate(90deg);
     }
+    #change-pass-submit {
+        margin-left: 0 !important;
+        transform: translateX(0%) !important;
+        margin-bottom: 4rem !important;
+    }
+    h1 {
+        font-size: 1.4rem !important;
+    }
+    #member-search {
+        margin: 3rem 1rem !important;
+    }
+    .members-img-content a {
+        width: initial !important;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -326,6 +351,114 @@
     select,
     option {
         width: 30rem !important;
+        // @include flexCenter;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) {
+    #trainee-left-right {
+        display: flex;
+        // flex-wrap: wrap;
+        row-gap: 3rem;
+        // align-items: center;
+        // justify-content: center;
+    }
+    #trainee-left-right input,
+    .formating-edit-members input,
+    #trainee-left-right select,
+    .formating-edit-members select {
+        margin-left: 0 !important;
+    }
+    .members-second-line-input {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    #member-right {
+        margin-left: 0 !important;
+    }
+    .members-first-line {
+        @include flexLayoutForPC;
+    }
+    .members-second-line {
+        @include flexLayoutForPC;
+    }
+    .members-third-line {
+        @include flexLayoutForPC;
+    }
+    .members-fourth-line {
+        @include flexLayoutForPC;
+    }
+    .members-fifth-line {
+        @include flexLayoutForPC;
+    }
+    .members-sixth-line {
+        @include flexLayoutForPC;
+    }
+    .members-seventh-line {
+        @include flexLayoutForPC;
+    }
+    .members-first-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-second-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-third-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-fourth-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-fifth-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-sixth-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-seventh-line-input {
+        @include flexLayoutForPC;
+    }
+    .members-fifth-line-input-text {
+        width: inherit !important;
+    }
+    .members-second-line-input-text {
+        width: inherit !important;
+    }
+    .members-buttons {
+        width: 100%;
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0.5rem !important;
+        padding: 0.5rem !important;
+    }
+    .trainee-first-line-input {
+        @include flexLayoutForPC;
+    }
+    .trainee-second-line {
+        @include flexLayoutForPC;
+    }
+    .voucher-first-line {
+        @include flexLayoutForPC;
+    }
+    .voucher-second-line {
+        @include flexLayoutForPC;
+    }
+    .voucher-third-line {
+        @include flexLayoutForPC;
+    }
+    .voucher-fourth-line {
+        @include flexLayoutForPC;
+    }
+    .voucher-fifth-line {
+        @include flexLayoutForPC;
+    }
+    .change-pass-container form {
         @include flexCenter;
+    }
+    #id_descript {
+        width: 60em;
+    }
+    .grid-container .item2 {
+        background-color: rgb(12, 93, 244) !important;
     }
 }
